@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,9 +31,9 @@ public class PreloadDataBase {
             userRepo.saveAll(users);
 
             List<Task> tasks = new ArrayList<>();
-            tasks.add(new Task("1","lesson", "about book", "20.05.20", users.get(1), "new"));
-            tasks.add(new Task("2", "attractor", "finish", "10.09.20", users.get(0), "In work"));
-            tasks.add(new Task("3", "task", "about work", "30.03.20", users.get(2), "finish"));
+            tasks.add(new Task("1","lesson", "about book",  LocalDate.of(2020,03,20), users.get(1), "new"));
+            tasks.add(new Task("2", "attractor", "finish", LocalDate.of(2020,03,15), users.get(0), "In work"));
+            tasks.add(new Task("3", "task", "about work", LocalDate.of(2020,03,25), users.get(2), "finish"));
             taskRepo.saveAll(tasks);
         };
 

@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.UUID;
 
 @Document(collection = "users")
-@CompoundIndex(def = "{'username':1, 'email':1}")
 @Data
 @Builder
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)

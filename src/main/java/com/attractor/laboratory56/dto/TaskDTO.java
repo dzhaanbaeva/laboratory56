@@ -1,11 +1,8 @@
 package com.attractor.laboratory56.dto;
 
 import com.attractor.laboratory56.model.Task;
-import com.attractor.laboratory56.model.User;
 import lombok.*;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Data
@@ -19,7 +16,7 @@ public class TaskDTO {
                 .id(task.getId())
                 .headline(task.getHeadline())
                 .description(task.getDescription())
-                .performanceDate(task.getPerformanceDate())
+                .performanceDate(LocalDate.now())
                 .userId(task.getUser().getId())
                 .status(task.getStatus())
                 .build();
@@ -29,7 +26,7 @@ public class TaskDTO {
     private String id = UUID.randomUUID().toString();
     public  String headline;
     public  String description;
-    public String performanceDate;
+    public LocalDate performanceDate;
     public String userId;
     public  String status;
 

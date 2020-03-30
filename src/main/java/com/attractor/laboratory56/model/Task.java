@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
@@ -23,14 +24,14 @@ public class Task {
     private String id = UUID.randomUUID().toString();
     public String headline;
     public String description;
-    public String performanceDate;
+    public LocalDate performanceDate;
     @DBRef
     public User user;
     @Getter
     @Setter
     public String status = "new";
 
-    public Task(String headline, String description, String performanceDate, User user) {
+    public Task(String headline, String description, LocalDate performanceDate, User user) {
         this.id = UUID.randomUUID().toString();
         this.headline = headline;
         this.description = description;
@@ -38,4 +39,12 @@ public class Task {
         this.user = user;
     }
 
+//    public Task(String id, String headline, String description, LocalDate performanceDate, User user, String status) {
+//        this.id = UUID.randomUUID().toString();
+//        this.headline = headline;
+//        this.description = description;
+//        this.performanceDate = performanceDate;
+//        this.user = user;
+//        this.status = status;
+//    }
 }

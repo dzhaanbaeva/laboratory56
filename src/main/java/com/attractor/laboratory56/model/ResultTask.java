@@ -4,7 +4,10 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "tasks")
+import java.time.LocalDate;
+
+
+@Document
 @Data
 @Builder
 public class ResultTask {
@@ -12,9 +15,9 @@ public class ResultTask {
     @Builder.Default
     String id;
     String headline;
-    String performanceDate;
+    LocalDate performanceDate;
 
-    public ResultTask(String id, String headline, String performanceDate) {
+    public ResultTask(String id, String headline, LocalDate performanceDate) {
         this.id = id;
         this.headline = headline;
         this.performanceDate = performanceDate;
